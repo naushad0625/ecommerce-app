@@ -20,7 +20,7 @@ class App {
 			this.app.use(cors());
 			this.app.use(helmet());
 			this.app.use(bodyparser.json());
-			this.app.use(bodyparser.urlencoded({ extended: true }));
+			this.app.use(bodyparser.urlencoded({ extended: false }));
 
 			//database configurations
 			await mongoose.connect(process.env.DB_URL, {
