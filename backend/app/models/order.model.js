@@ -1,16 +1,16 @@
 const Sequelize = require('sequelize');
 
-class UserModel extends Sequelize.Model {
+class OrderModel extends Sequelize.Model {
 	static init(connection) {
 		this.model = super.init(
 			{},
 			{
 				sequelize: connection,
-				modelName: 'User',
-				tableName: 'user',
+				modelName: 'Order',
+				tableName: 'order',
 			},
 		);
 	}
 }
 
-module.exports = UserModel;
+module.exports = OrderModel;

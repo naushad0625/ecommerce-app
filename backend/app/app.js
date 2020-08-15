@@ -7,11 +7,13 @@ const bodyparser = require('body-parser');
 const consola = require('consola');
 
 const Router = require('./routes/router.js');
+const DbConfig = require('./configs/db.config.js');
 
 class App {
 	constructor() {
 		this.app = express();
 		this.router = new Router();
+		this.dbConfig = new DbConfig();
 	}
 
 	async configure() {
@@ -23,10 +25,7 @@ class App {
 			this.app.use(bodyparser.urlencoded({ extended: false }));
 
 			//database configurations
-			await mongoose.connect(process.env.DB_URL, {
-				useNewUrlParser: true,
-				useUnifiedTopology: true,
-			});
+			this.dbConfig.configure();
 
 			//route configurations
 			this.router.configure();
