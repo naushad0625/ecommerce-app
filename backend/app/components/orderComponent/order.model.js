@@ -1,9 +1,14 @@
-const Sequelize = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 
-class OrderModel extends Sequelize.Model {
+class OrderModel extends Model {
 	static init(connection) {
 		this.model = super.init(
-			{},
+			{
+				qunatity: {
+					type: DataTypes.INTEGER,
+					default: 1,
+				},
+			},
 			{
 				sequelize: connection,
 				modelName: 'Order',

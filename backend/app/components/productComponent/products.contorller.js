@@ -1,5 +1,5 @@
 const consola = require('consola');
-const ProductsService = require('../services/products.service.js');
+const ProductsService = require('./products.service.js');
 
 class ProductsController {
 	constructor() {

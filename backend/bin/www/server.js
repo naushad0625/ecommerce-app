@@ -2,7 +2,7 @@ require('dotenv').config();
 const http = require('http');
 const consola = require('consola');
 
-const App = require('./app/app.js');
+const App = require('../../app/app.js');
 
 class Server {
 	constructor() {

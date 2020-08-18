@@ -1,5 +1,5 @@
 const express = require('express');
-const ProductController = require('../controllers/products.contorller.js');
+const ProductController = require('./products.contorller.js');
 
 class ProductsRoutes {
 	constructor() {

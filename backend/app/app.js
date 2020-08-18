@@ -1,13 +1,12 @@
 const cors = require('cors');
 const helmet = require('helmet');
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 
 const consola = require('consola');
 
-const Router = require('./routes/router.js');
-const DbConfig = require('./configs/db.config.js');
+const Router = require('./router.js');
+const DbConfig = require('./db.config.js');
 
 class App {
 	constructor() {

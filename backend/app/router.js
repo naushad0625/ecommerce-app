@@ -1,11 +1,11 @@
 const express = require('express');
 
-const AuthRouter = require('./auth.routes.js');
-const UsersRouter = require('./users.routes.js');
-const OrdersRouter = require('./orders.routes.js');
-const ProductsRouter = require('./products.routes.js');
+const AuthRouter = require('./components/authComponent//auth.routes.js');
+const UsersRouter = require('./components/userComponent/users.routes.js');
+const OrdersRouter = require('./components/orderComponent//orders.routes.js');
+const ProductsRouter = require('./components/productComponent/products.routes.js');
 
-const helper = require('../utils/helper.js');
+const helper = require('./helper.js');
 
 class Router {
 	constructor() {
@@ -27,7 +27,7 @@ class Router {
 		this.productsRouter.configure();
 
 		//verify authentication first then let in
-		this.router.use(helper.checkAuthentication);
+		this.router.use(helper.allowIfLoggedIn);
 
 		//test authorization. No other purpose. Can comment out this
 		this.router.get('', (req, res, next) => {
