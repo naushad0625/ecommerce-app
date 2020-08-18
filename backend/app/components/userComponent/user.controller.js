@@ -40,6 +40,16 @@ class UserController {
 
 	async update(req, res, next) {
 		try {
+			const user_id = req.params.user_id;
+			const updatedUser = req.body;
+
+			if (!user_id || !updatedUser) {
+				return res.status(204).send('No user id provided!');
+			}
+
+			const msg = await this.userService.update(user_id, updatedUser);
+
+			return res.status(201).json({ msg });
 		} catch (error) {
 			consola.error(error);
 			res.status(500).send(error);
